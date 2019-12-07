@@ -30,6 +30,12 @@ router.route("/").get((req, res) => {
 router.route("/submitorder").post((req, res) => {
   console.log(req);
   let qty;
+  if (req.body.quantity <= 0) {
+    res
+      .status(400)
+      .send({ status: "Invalid input", info: "Quantity should be at least 1" });
+      return
+  }
   req.body.side === "sell"
     ? (qty = req.body.quantity * -1)
     : (qty = req.body.quantity);
@@ -44,18 +50,5 @@ router.route("/submitorder").post((req, res) => {
     .then(() => res.json({ status: "ok" }))
     .catch(e => res.status(400).send({ status: "Invalid input", info: e }));
 });
-
-function checkNewUser(username) {
-  console.log('babababa')
-  User.find({ username: username }).then(user => {
-    console.log(user)
-    if (user === []){
-      console.log("dadada")
-      
-    } else {
-      console.log("eaeaea")
-    }
-  });
-}
 
 module.exports = router;
