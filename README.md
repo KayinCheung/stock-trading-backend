@@ -11,13 +11,12 @@ The DB instance can be modified by changing the variable in `config.js`
 
 #### GET /portfolio?user=Username
 
-- Adds watch history for user
+- Returns the portfolio holdings for specified user. In this demo, the holdings is hardcoded to return the same data.
 
-| Fields  | Type |
+| Input Params  | Type |
 | ------------- | ------------- |
 | user  | String  |
 
-Returns the portfolio holdings for specified user. In this demo, the holdings is hardcoded to return the same data.
 
 | Return Fields  | Type |
 | ------------- | ------------- |
