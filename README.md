@@ -39,3 +39,12 @@ Returns the portfolio holdings for specified user. In this demo, the holdings is
 | page  | Integer >=0  |
 
 Returns the trades of the corresponding user at the specified page. Page 0 returns the latest 10 trades.
+
+#### POST /trade/submitorder?username=User&page=0
+
+| Fields  | Type |
+| ------------- | ------------- |
+| username  | String  |
+| page  | Integer >=0  |
+
+Returns the trades of the corresponding user at the specified page. Page 0 returns the latest 10 trades.
