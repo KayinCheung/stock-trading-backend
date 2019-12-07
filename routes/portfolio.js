@@ -1,13 +1,9 @@
 const router = require("express").Router();
 
-const sectors = ["Finance",]
-
 router.route("/").get((req, res) => {
   res.json({
     user: req.param.user,
-    cash: {
-      USD: 2901
-    },
+    cash: 2901,
     stock: {
       AAPL: {
         position: 20,
@@ -49,7 +45,7 @@ router.route("/").get((req, res) => {
         position: -30,
         cost_basis: 30,
         sector: "Consumer Services"
-      },
+      }
     }
   });
 });

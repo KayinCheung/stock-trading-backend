@@ -3,12 +3,39 @@
 - npm install
 - npm start
 
-Backend will be deployed at the port defined in .env file. (Default port 5000)
-It will automatically connect to this mongodb instance: mongodb+srv://aaa:aaa@cluster0-j2kad.mongodb.net/test?retryWrites=true&w=majority
+It will automatically deploy at port 5000 and connect to this mongodb instance: mongodb+srv://aaa:aaa@cluster0-6fssf.mongodb.net/test?retryWrites=true&w=majority
 
-The DB instance can be modified by changing MONGO_URI in .env
+The DB instance can be modified by changing the variable in `config.js`
 
-## Testing the project
+## Features
 
-- npm test
+#### GET /portfolio?user=Username
 
+- Adds watch history for user
+
+| Fields  | Type |
+| ------------- | ------------- |
+| user  | String  |
+
+Returns the portfolio holdings for specified user. In this demo, the holdings is hardcoded to return the same data.
+
+| Return Fields  | Type |
+| ------------- | ------------- |
+| user  | String  |
+| cash  | Number  |
+| stock  | Object, where key is a `string` of stock ticker, value is the `stock` object  |
+
+| Stock Object  | Type |
+| ------------- | ------------- |
+| position  | Number  |
+| cost_basis  | Number  |
+| sector  | String  |
+
+#### GET /trade?username=User&page=0
+
+| Fields  | Type |
+| ------------- | ------------- |
+| username  | String  |
+| page  | Integer >=0  |
+
+Returns the trades of the corresponding user at the specified page. Page 0 returns the latest 10 trades.
